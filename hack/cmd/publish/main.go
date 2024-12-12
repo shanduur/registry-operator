@@ -152,7 +152,7 @@ func cleanupOldVersions() error {
 	for i := 0; i < len(sortedVersions)-3; i++ {
 		oldVersion := sortedVersions[i].Original()
 		log.Printf("Deleting version: %s", oldVersion)
-		if err := mike("delete", oldVersion); err != nil {
+		if err := mike("delete", "v"+oldVersion); err != nil {
 			return fmt.Errorf("failed to delete version %s: %w", oldVersion, err)
 		}
 	}
